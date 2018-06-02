@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings 
+  xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <!-- 这是去掉默认注释后的，注释自行查看 Maven 官方的 settings.xml 设置 -->
+
+  <pluginGroups></pluginGroups>
+
+
+  <!-- 访问外网的代理 -->
+  <proxies>
+    <proxy>
+      <id>yourProxyServer</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <username></username>
+      <password></password>
+      <host>yourProxyServer.com</host>
+      <port>yourProxyPort</port>
+      <!-- 无需代理镜像仓库 -->
+      <nonProxyHosts>yourMavenMirror.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+
+
+  <!-- 用于上传发布自己的包到 yourMavenMirror.com（注意 id 与 pom.xml 中的 distributionManagement 对应），若不需发布，可去掉 -->
+  <servers>
+    <server>
+      <id>your_thirdparty_releases</id>
+      <username>yourName</username>
+      <password>yourPassword</password>
+    </server>
+    <server>
+      <id>your_thirdparty_snapshots</id>
+      <username>yourName</username>
+      <password>yourPassword</password>
+    </server>
+  </servers>
+
+
+  <!-- 用于从局域网镜像获取包 -->
+  <mirrors>
+    <mirror>
+      <id>your_releases</id>
+      <mirrorOf>central</mirrorOf>
+      <name>internal repository</name>
+      <url>http://yourMavenMirror.com/nexus/content/groups/public/</url>
+    </mirror>
+  </mirrors>
+
+
+  <profiles>
+      <profile>
+          <activation>
+              <activeByDefault>true</activeByDefault>
+          </activation>
+          <repositories>
+              <repository>
+                <id>your_releases</id>
+                <name>internal repository</name>
+                <url>http://yourMavenMirror.com/nexus/content/groups/public/</url>
+                <releases>
+                  <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                  <enabled>true</enabled>
+                </snapshots>
+              </repository>
+          </repositories>
+      </profile>
+  </profiles>
+  
+
+</settings>
