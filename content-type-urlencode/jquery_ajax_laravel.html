@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery AJAX Laravel test</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body style="display:flex;min-height: 500px;">
+    <div style="width: 44%;">
+        <button id="jquery-get" onclick="jqueryGet(this)">jQuery GET (Click me)</button>
+        <br> jQuery GET response:
+        <br> --------------
+        <br>
+        <div id="jquery-get-result"></div>
+        <br>
+    </div>
+
+    <div style="width: 40%; margin-left: 30px; padding-left: 50px;border-left: 1px dashed;">
+        <button id="jquery-post" onclick="jqueryPost(this)">jQuery POST (Click me)</button>
+        <br> jQuery POST response:
+        <br> --------------
+        <br>
+        <div id="jquery-post-result"></div>
+        <br>
+    </div>
+
+
+    <script>
+        let data = {
+            a: 123,
+            b: [
+                789,
+                { c: 456 }
+            ]
+        }
+
+        function jqueryGet(e) {
+            let $result = $('#jquery-get-result')
+            $result.html('')
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8181/t1',
+                data: data,
+                success: function (result, textStatus, jqXHR) {
+                    $result.html(result)
+                },
+            })
+        }
+
+        function jqueryPost(e) {
+             let $result = $('#jquery-post-result')
+             $result.html('')
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8181/t1',
+                data: data,
+                success: function (result, textStatus, jqXHR) {
+                    $result.html(result)
+                },
+            })
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "content-type-urlencode",
+  "version": "1.0.0",
+  "author": "vikyd <zwj_fhys@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "s": "php -S localhost:8080"
+  }
+}

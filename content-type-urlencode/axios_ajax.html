@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>axios submit test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</head>
+
+<body style="display:flex;min-height: 500px;">
+    <div>
+        <button id="axios-get" onclick="axiosGet(this)">axios GET (Click me)</button>
+        <br> axios GET response:
+        <br> --------------
+        <br>
+        <div id="axios-get-result"></div>
+        <br>
+    </div>
+
+    <div style="margin-left: 30px; padding-left: 50px;border-left: 1px dashed;">
+        <button id="axios-post" onclick="axiosPost(this)">axios POST (Click me)</button>
+        <br> axios POST response:
+        <br> --------------
+        <br>
+        <div id="axios-post-result"></div>
+        <br>
+    </div>
+
+    <div style="margin-left: 30px; padding-left: 50px;border-left: 1px dashed;">
+        <button id="axios-config-post" onclick="axiosConfigPost(this)">axios config POST (Click me)</button>
+        <br> axios config POST response:
+        <br> --------------
+        <br>
+        <div id="axios-config-post-result"></div>
+        <br>
+    </div>
+
+
+    <script>
+        let data = {
+            a: 123,
+            b: [
+                789,
+                { c: 456 }
+            ]
+        }
+
+        // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        function axiosGet(e) {
+            axios.get('http://localhost:8080/server.php', {
+                params: data
+            }).then(function (response) {
+                document.getElementById('axios-get-result').innerHTML = response.data
+            });
+
+        }
+
+        function axiosPost(e) {
+            axios.post('http://localhost:8080/server.php', data)
+                .then(function (response) {
+                    document.getElementById('axios-post-result').innerHTML = response.data
+                });
+        }
+
+        function axiosConfigPost(e) {
+            axios.post('http://localhost:8080/server.php', data,
+                { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+            )
+                .then(function (response) {
+                    document.getElementById('axios-config-post-result').innerHTML = response.data
+                });
+        }
+    </script>
+
+</body>
+
+</html>

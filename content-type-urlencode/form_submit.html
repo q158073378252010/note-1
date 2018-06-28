@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>form submit test</title>
+</head>
+
+<body style="display:flex;min-height: 500px;">
+    <div>
+        <form action="http://localhost:8080/server.php">
+            GET form:
+            <br>
+            <input name="a" value="123">
+            <br>
+            <br>
+            <textarea name="b">456</textarea>
+            <br>
+            <input name="c" type="radio" checked>
+            <br>
+            <br>
+            <input type="submit" value="GET form 提交 （Click me）">
+        </form>
+
+    </div>
+
+    <div style="margin-left: 30px; padding-left: 50px;border-left: 1px dashed;">
+        <form action="http://localhost:8080/server.php" method="POST">
+            POST form:
+            <br>
+            <input name="a" value="123">
+            <br>
+            <br>
+            <textarea name="b">456</textarea>
+            <br>
+            <input name="c" type="radio" checked>
+            <br>
+            <br>
+            <input type="submit" value="POST form 提交 （Click me）">
+        </form>
+    </div>
+
+
+    <div style="margin-left: 30px; padding-left: 50px;border-left: 1px dashed;">
+        <form action="http://localhost:8080/server.php" method="POST">
+            POST array form:
+            <br>
+            <input name="a[0]" value="123">
+            <input name="a[1]" value="1234">
+            <br>
+            <br>
+            <input name="a[a1][b1]" value="123">
+            <input name="a[a2][b2]" value="1234">
+            <br>
+            <br>
+            <textarea name="b[x1]">456</textarea>
+            <textarea name="b[x2]">4567</textarea>
+            <br>
+            <input name="c" type="radio" checked>
+            <br>
+            <br>
+            <input type="submit" value="POST array form 提交 （Click me）">
+        </form>
+    </div>
+
+</body>
+
+</html>
