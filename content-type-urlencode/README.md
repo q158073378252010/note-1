@@ -164,7 +164,7 @@ urlencode 只允许出现以下字符（其他字符一律转换为以下字符�
 
 # urlencode 中表示一个空格，应是 `%20`？还是 `+`？
 
-实际使用是： 一般接收端两者都能兼容。
+实际使用是：一般接收端两者都能兼容。
 
 // 空格实验 TODO
 
@@ -333,7 +333,7 @@ urlencode 编码数组、嵌套数组是否有统一、标准的编码方式？
 结论：
 
 - jQuery 默认的 GET、POST 编码行为与浏览器基本一致，也能被 PHP [`$_GET`](http://php.net/manual/en/reserved.variables.get.php)、[`$_POST`](http://php.net/manual/en/reserved.variables.post.php) 原生识别
-  - PHP  的 `$_GE`、`$_POST` 本身也是针对 `application/x-www-form-urlencoded` 而设计的
+  - PHP 的 `$_GE`、`$_POST` 本身也是针对 `application/x-www-form-urlencoded` 而设计的
 
 ### axios.js 嵌套数据的 urlencoded 编码方式
 
@@ -544,7 +544,7 @@ s2 = urllib.unquote(s1).decode('utf8')
 
 - [Codeigniter Input 类](https://codeigniter.org.cn/user_guide/libraries/input.html)
 
-# urlencode 与 base64 的区别
+# urlencode 与 base64 的区别
 
 [base64 是什么？为什么是 64 而非其他数字？](https://github.com/vikyd/note/blob/master/content-type-urlencode/base64.md)
 
@@ -559,20 +559,20 @@ s2 = urllib.unquote(s1).decode('utf8')
   - 优点
     - 相对易读，能大致看出原始字符，是 1 对 1，或 1 对 n 的关系
   - 缺点
-    -  凡是需编码的字符，都会变成 2 倍的大小，比 base64 大
+    - 凡是需编码的字符，都会变成 2 倍的大小，比 base64 大
 
-# `Content-Type` vs `MIME`
+# `Content-Type` vs `MIME`
 
 根据 [这个回答](https://stackoverflow.com/a/17949292/2752670)：
 
 - `MIME` 是 `Content-Type` 别名
-- `Content-Type`  还可在后面附带编码信息，如 `text/html; charset=UTF-8`
+- `Content-Type` 还可在后面附带编码信息，如 `text/html; charset=UTF-8`
 
 在说 HTTP 时，`Content-Type` 和 `MIME` 基本可认为是同一个东西
 
 根据 [这个回答](https://stackoverflow.com/a/3452833/2752670)：
 
-- `MIME`  起源于 Email，后来 HTTP 借用过来叫 `Content-Type`
+- `MIME` 起源于 Email，后来 HTTP 借用过来叫 `Content-Type`
 
 # 杂
 - GET 的请求数据应尽量少，因 URL 有长度限制（不同浏览器、服务器不一样）
