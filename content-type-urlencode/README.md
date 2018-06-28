@@ -42,7 +42,7 @@ py requests 若想发送像 jQuery 那样的字符串（让 PHP Server `$_POST` 
 
 ---
 
-# 下面比较
+# 下面比较长，需配合实例来验证
 
 # 由此引发的思考
 
