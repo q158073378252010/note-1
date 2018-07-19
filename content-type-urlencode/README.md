@@ -1,4 +1,4 @@
-# 由 urlencode、content-type、嵌套数组想到的
+# 由 urlencode、HTTP Content-Type、嵌套数组想到的
 
 # 起因
 
